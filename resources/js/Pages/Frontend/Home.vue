@@ -1,14 +1,12 @@
 <template>
-    <FrontendLayout>
 
-    </FrontendLayout>
 </template>
 
 <script>
 import FrontendLayout from '../Shared/FrontendLayout';
 
 export default {
-    components: { FrontendLayout }
+    layout: FrontendLayout
 };
 </script>
 

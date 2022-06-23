@@ -1,9 +1,10 @@
 <?php
 
 use App\Http\Controllers\Frontend\GeneralController;
-use Illuminate\Foundation\Application;
+use App\Http\Controllers\Frontend\ProductController;
+use App\Http\Controllers\Frontend\ReportController;
+use App\Http\Controllers\Frontend\SellsController;
 use Illuminate\Support\Facades\Route;
-use Inertia\Inertia;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,8 +16,20 @@ use Inertia\Inertia;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::controller(SellsController::class)->group(function () {
+    Route::get('/sells', 'index')->name('sells.index');
+    Route::get('/sells/{sell}', 'show')->name('sells.show');
+    Route::post('/sells', 'store')->name('sells.store');
+});
 
-Route::get('/', [GeneralController::class, 'index']);
+Route::controller(ProductController::class)->group(function () {
+    Route::get('/products', 'index')->name('products.index');
+    Route::get('/products/{product}', 'show')->name('products.show');
+    Route::post('/products', 'store')->name('products.store');
+});
+Route::get('/reports', [ReportController::class, 'index'])->name('reports.index');
+
+
 /*Route::get('/', function () {
     return Inertia::render('Welcome', [
         'canLogin' => Route::has('login'),

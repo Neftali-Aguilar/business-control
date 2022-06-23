@@ -8,10 +8,11 @@
                 type='button' onclick="toggleNavbar('example-collapse-sidebar')">
                 <i class='fas fa-bars'></i>
             </button>
-            <a class='md:block text-left md:pb-2 text-blueGray-600 mr-0 inline-block whitespace-nowrap text-sm uppercase font-bold p-4 px-0'
-               href='../../index.html'>
+            <Link
+                class='md:block text-left md:pb-2 text-blueGray-600 mr-0 inline-block whitespace-nowrap text-sm uppercase font-bold p-4 px-0'
+                href='/'>
                 Control Negocio
-            </a>
+            </Link>
             <ul class='md:hidden items-center flex flex-wrap list-none'>
                 <li class='inline-block relative'>
                     <a class='text-blueGray-500 block py-1 px-3' href='#pablo'
@@ -64,10 +65,11 @@
                 <div class='md:min-w-full md:hidden block pb-4 mb-4 border-b border-solid border-blueGray-200'>
                     <div class='flex flex-wrap'>
                         <div class='w-6/12'>
-                            <a class='md:block text-left md:pb-2 text-blueGray-600 mr-0 inline-block whitespace-nowrap text-sm uppercase font-bold p-4 px-0'
-                               href='../../index.html'>
-                               Control Negocio
-                            </a>
+                            <Link
+                                class='md:block text-left md:pb-2 text-blueGray-600 mr-0 inline-block whitespace-nowrap text-sm uppercase font-bold p-4 px-0'
+                                href='/'>
+                                Control Negocio
+                            </Link>
                         </div>
                     </div>
                 </div>
@@ -76,28 +78,27 @@
                 <h6 class='md:min-w-full text-blueGray-500 text-xs uppercase font-bold block pt-1 pb-4 no-underline'>
                     Detalles del negocio
                 </h6>
-
                 <ul class='md:flex-col md:min-w-full flex flex-col list-none'>
                     <li class='items-center'>
-                        <a href='./dashboard.html'
-                           class='text-xs uppercase py-3 font-bold block text-blueGray-700 hover:text-blueGray-500'>
+                        <Link :href="route('sells.index')"
+                              class='text-xs uppercase py-3 font-bold block text-blueGray-700 hover:text-blueGray-500'>
                             <i class='fas fa-tv mr-2 text-sm text-blueGray-300'></i>
                             Punto de venta
-                        </a>
+                        </Link>
                     </li>
                     <li class='items-center'>
-                        <a href='./dashboard.html'
-                           class='text-xs uppercase py-3 font-bold block text-blueGray-700 hover:text-blueGray-500'>
+                        <Link :href="route('products.index')"
+                              class='text-xs uppercase py-3 font-bold block text-blueGray-700 hover:text-blueGray-500'>
                             <i class='fas fa-tv mr-2 text-sm text-blueGray-300'></i>
                             Productos
-                        </a>
+                        </Link>
                     </li>
                     <li class='items-center'>
-                        <a href='./dashboard.html'
-                           class='text-xs uppercase py-3 font-bold block text-blueGray-700 hover:text-blueGray-500'>
+                        <Link :href="route('reports.index')"
+                              class='text-xs uppercase py-3 font-bold block text-blueGray-700 hover:text-blueGray-500'>
                             <i class='fas fa-tv mr-2 text-sm text-blueGray-300'></i>
                             Reportes
-                        </a>
+                        </Link>
                     </li>
 
                 </ul>
@@ -110,11 +111,11 @@
 
                 <ul class='md:flex-col md:min-w-full flex flex-col list-none'>
                     <li class='items-center'>
-                        <a href='./dashboard.html'
-                           class='text-xs uppercase py-3 font-bold block text-blueGray-700 hover:text-blueGray-500'>
+                        <Link href='/admin'
+                              class='text-xs uppercase py-3 font-bold block text-blueGray-700 hover:text-blueGray-500'>
                             <i class='fas fa-tv mr-2 text-sm text-blueGray-300'></i>
                             Panel administrativo
-                        </a>
+                        </Link>
                     </li>
                 </ul>
             </div>
