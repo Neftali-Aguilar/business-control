@@ -17,7 +17,7 @@
                                 </button>
                             </div>
                         </div>
-                        <div class='flex-auto px-4 lg:px-10 py-10 pt-0'>
+                        <div class='flex-auto px-4 lg:px-10 py-10 pt-0 overflow-x-scroll'>
                             <table class='items-center w-full bg-transparent border-collapse'>
                                 <thead>
                                 <tr>

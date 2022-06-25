@@ -1,7 +1,7 @@
 <template>
     <Head>
         <title>Productos</title>
-        <meta name="description" content="Your page description">
+        <meta name='description' content='Your page description'>
     </Head>
     <div>
         <div class='px-4 md:px-10 mx-auto w-full -m-24'>
@@ -15,15 +15,15 @@
                                     Listado de productos
                                 </h6>
                                 <input type='text' placeholder='Buscar producto' class='border-gray-200 w-8/12'>
-                                <button
+                                <Link
+                                    :href="route('products.create')"
                                     class='bg-green-700 hover:bg-green-500 text-white font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150'
-                                    type='button'>
+                                >
                                     Crear producto
-                                </button>
+                                </Link>
                             </div>
                         </div>
                         <div class='flex-auto px-4 lg:px-10 py-10 pt-0'>
-
                             <table class='items-center w-full bg-transparent border-collapse'>
                                 <thead>
                                 <tr>
@@ -53,21 +53,28 @@
                                         {{ product.name }}
                                     </td>
                                     <td class='border-t-0 px-6 border-l-0 border-r-0 text-md whitespace-nowrap p-4'>
-                                       $ {{ product.price.toFixed(2) }}
+                                        $ {{ product.price.toFixed(2) }}
                                     </td>
                                     <td class='border-t-0 px-6 border-l-0 border-r-0 text-md whitespace-nowrap p-4'>
                                         {{ product.quantity }} {{ product.quantity === 1 ? 'Pieza' : 'Piezas' }}
                                     </td>
+                                    <td class='border-t-0 px-6 border-l-0 border-r-0 text-md whitespace-nowrap p-4 flex items-center'>
+                                        <span v-if='product.is_active'
+                                              class='w-3 h-3 rounded-full block bg-green-500 mr-2'></span>
+                                        <span v-else class='w-3 h-3 rounded-full block bg-red-500 mr-2'></span>
+                                        {{ product.is_active ? 'Activo' : 'Inactivo' }}
+                                    </td>
                                     <td class='border-t-0 px-6 border-l-0 border-r-0 text-md whitespace-nowrap p-4'>
-                                        <a href='#'
-                                           class='bg-blue-500 text-white font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-lg outline-none mr-1 ease-linear transition-all duration-150'>
+                                        <Link :href="route('products.show', product)"
+                                              class='bg-blue-500 text-white font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-lg outline-none mr-1 ease-linear transition-all duration-150'>
                                             Ver producto
-                                        </a>
+                                        </Link>
                                     </td>
                                 </tr>
                                 </tbody>
                             </table>
-                            <Pagination class="mt-6" :links="products.links" />
+                            <Pagination class='mt-6' :links='products.links' />
+
                         </div>
                     </div>
                 </div>
@@ -78,18 +85,37 @@
 
 <script>
 import Pagination from '../../Shared/Pagination';
-import { Head } from '@inertiajs/inertia-vue3';
+import { Head, usePage } from '@inertiajs/inertia-vue3';
 import Layout from '../Shared/Layout';
+import { onMounted } from 'vue';
+import Swal from 'sweetalert2'
+
 
 export default {
     name: 'Index',
-    components:{
+    components: {
         Head,
         Pagination
     },
     layout: Layout,
-    props:{
-        products: Object
+    props: {
+        products: Object,
+    },
+    setup() {
+        const displayMessage= () => {
+            Swal.fire({
+                title: 'Producto guarado!',
+                icon: 'success',
+                confirmButtonText: 'Cerrar'
+            });
+        }
+        const alertMessage = onMounted(() => {
+            const { message: flashMessage } = usePage().props.value.flash
+            if ( flashMessage ) displayMessage()
+        })
+        return {
+            alertMessage
+        };
     }
 };
 </script>
