@@ -14,7 +14,7 @@
                                 <h6 class='text-blueGray-700 text-xl font-bold'>
                                     Listado de productos
                                 </h6>
-                                <input type='text' placeholder='Buscar producto' class='border-gray-200 w-8/12'>
+                                <input type='text' placeholder='Buscar producto' class='border-gray-200 w-auto w-6/12'>
                                 <Link
                                     :href="route('products.create')"
                                     class='bg-green-700 hover:bg-green-500 text-white font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150'
@@ -23,7 +23,7 @@
                                 </Link>
                             </div>
                         </div>
-                        <div class='flex-auto px-4 lg:px-10 py-10 pt-0'>
+                        <div class='flex-auto px-4 lg:px-10 py-10 pt-0  overflow-x-scroll'>
                             <table class='items-center w-full bg-transparent border-collapse'>
                                 <thead>
                                 <tr>
@@ -102,16 +102,16 @@ export default {
         products: Object,
     },
     setup() {
-        const displayMessage= () => {
+        const displayMessage= (message) => {
             Swal.fire({
-                title: 'Producto guarado!',
+                title: message,
                 icon: 'success',
                 confirmButtonText: 'Cerrar'
             });
         }
         const alertMessage = onMounted(() => {
             const { message: flashMessage } = usePage().props.value.flash
-            if ( flashMessage ) displayMessage()
+            if ( flashMessage ) displayMessage(message)
         })
         return {
             alertMessage

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreProductRequest;
+use App\Http\Requests\UpdateProductRequest;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use App\Models\Product;
@@ -75,11 +76,13 @@ class ProductController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(Request $request, $id)
+    public function update(UpdateProductRequest $request, $id)
     {
-        //
+        $product = Product::findOrfail($id);
+        $product->update($request->validated());
+        return redirect()->route('products.show', $product->id)->with('message', 'Producto actualizado');
     }
 
     /**

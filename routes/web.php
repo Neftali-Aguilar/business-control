@@ -25,9 +25,9 @@ Route::controller(SellsController::class)->group(function () {
 Route::controller(ProductController::class)->group(function () {
     Route::get('/products', 'index')->name('products.index');
     Route::get('/products/create', 'create')->name('products.create');
-    Route::get('/products/{product}', 'show')->name('products.show');
-    Route::post('/products/{product}', 'store')->name('products.store');
     Route::post('/products', 'store')->name('products.store');
+    Route::get('/products/{product}', 'show')->name('products.show');
+    Route::put('/products/{product}', 'update')->name('products.update');
 });
 Route::get('/reports', [ReportController::class, 'index'])->name('reports.index');
 

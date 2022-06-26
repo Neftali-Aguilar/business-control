@@ -31,14 +31,14 @@
                                     <label for='price'>Precio</label>
                                     <input
                                         v-model='form.price'
-                                        type='number' min='0' placeholder='Escribe el nombre del producto'
+                                        type='number' min='0'
                                         class='w-full border-2 border-gray-200 mt-2 rounded-md'>
                                 </div>
                                 <div class='w-full my-2'>
                                     <label for='quantity'>Cantidad</label>
                                     <input
                                         v-model='form.quantity'
-                                        type='number' min='0' placeholder='Escribe el nombre del producto'
+                                        type='number' min='0'
                                         class='w-full border-2 border-gray-200 mt-2 rounded-md'>
                                 </div>
                                 <div class='w-full my-2'>
@@ -83,7 +83,7 @@ export default {
         const form = useForm({
             name: null,
             price: null,
-            quantity: 0,
+            quantity: null,
             is_active: 1
         });
         return { form };

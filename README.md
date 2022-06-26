@@ -1,4 +1,4 @@
-## About Laravel
+## About Business-Control
 
 Business control is a minimal software which include 3 modules:
 - Products
