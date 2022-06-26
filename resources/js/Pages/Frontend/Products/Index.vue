@@ -111,7 +111,7 @@ export default {
         }
         const alertMessage = onMounted(() => {
             const { message: flashMessage } = usePage().props.value.flash
-            if ( flashMessage ) displayMessage(message)
+            if ( flashMessage ) displayMessage(flashMessage)
         })
         return {
             alertMessage

@@ -21498,7 +21498,7 @@ __webpack_require__.r(__webpack_exports__);
 
     var alertMessage = (0,vue__WEBPACK_IMPORTED_MODULE_3__.onMounted)(function () {
       var flashMessage = (0,_inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_1__.usePage)().props.value.flash.message;
-      if (flashMessage) displayMessage(message);
+      if (flashMessage) displayMessage(flashMessage);
     });
     return {
       alertMessage: alertMessage
