@@ -15,7 +15,7 @@ class ProductFactory extends Factory
     {
         return [
             'name' => $this->faker->name,
-            'price' => $this->faker->numberBetween(10,100),
+            'price' => $this->faker->randomFloat(1,10, 100),
             'quantity' => $this->faker->numberBetween(0,10),
             'is_active' => $this->faker->boolean
         ];

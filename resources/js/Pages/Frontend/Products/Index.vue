@@ -101,7 +101,8 @@ export default {
     props: {
         products: Object,
     },
-    setup() {
+    setup(props) {
+        console.log(props.products)
         const displayMessage= (message) => {
             Swal.fire({
                 title: message,
