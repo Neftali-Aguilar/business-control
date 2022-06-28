@@ -28,6 +28,7 @@ Route::controller(ProductController::class)->group(function () {
     Route::post('/products', 'store')->name('products.store');
     Route::get('/products/{product}', 'show')->name('products.show');
     Route::put('/products/{product}', 'update')->name('products.update');
+    Route::delete('/products/{product}', 'delete')->name('products.delete');
 });
 Route::get('/reports', [ReportController::class, 'index'])->name('reports.index');
 

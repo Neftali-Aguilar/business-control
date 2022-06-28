@@ -40,17 +40,23 @@
                                         Stock
                                     </th>
                                     <th class='px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-blueGray-50 text-blueGray-500 border-blueGray-100'>
+                                        Estado
+                                    </th>
+                                    <th class='px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-blueGray-50 text-blueGray-500 border-blueGray-100'>
                                         Accíon
                                     </th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr v-for='product in products.data' :key='product.id'>
+                                <tr v-for='product in products.data' :key='product.id' class='hover:bg-gray-200 transition-all duration-150'>
                                     <th class='border-t-0 px-6 border-l-0 border-r-0 text-md whitespace-nowrap p-4 text-left flex items-center'>
                                         {{ product.id }}
                                     </th>
                                     <td class='border-t-0 px-6 border-l-0 border-r-0 text-md whitespace-nowrap p-4'>
-                                        {{ product.name }}
+                                        <Link :href="route('products.show', product)">
+                                            {{ product.name }}
+                                        </Link>
+
                                     </td>
                                     <td class='border-t-0 px-6 border-l-0 border-r-0 text-md whitespace-nowrap p-4'>
                                         $ {{ product.price.toFixed(2) }}

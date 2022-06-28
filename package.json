@@ -8,7 +8,8 @@
         "hot": "mix watch --hot",
         "prod": "npm run production",
         "production": "mix --production",
-        "postinstall": "npm run prod"
+        "postinstall": "npm run prod",
+        "ssr": "mix --production && mix --mix-config=webpack.ssr.mix.js"
     },
     "devDependencies": {
         "@inertiajs/inertia": "^0.11.0",
@@ -26,6 +27,9 @@
         "vue-loader": "^17.0.0"
     },
     "dependencies": {
-        "sweetalert2": "^11.4.18"
+        "@inertiajs/server": "^0.1.0",
+        "@vue/server-renderer": "^3.2.37",
+        "sweetalert2": "^11.4.18",
+        "webpack-node-externals": "^3.0.0"
     }
 }

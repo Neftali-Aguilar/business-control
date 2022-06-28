@@ -18,7 +18,10 @@ class CreateProductsTable extends Migration
             $table->string('name');
             $table->integer('price');
             $table->integer('quantity');
+            $table->unsignedBigInteger('business_id');
+            $table->foreign('business_id')->references('id')->on('businesses');
             $table->boolean('is_active')->default(1);
+            $table->softDeletes();
             $table->timestamps();
         });
     }

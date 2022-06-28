@@ -19,6 +19,7 @@ class ProductController extends Controller
     public function index()
     {
         $products = Product::latest('id')->paginate(10);
+        $products->setPath('');
         return Inertia::render('Frontend/Products/Index', [
             'products' => $products
         ]);
@@ -91,8 +92,10 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function delete($id)
     {
-        //
+        $product = Product::findOrfail($id);
+        $product->delete();
+        return redirect()->route('products.index')->with('message', 'Producto eliminado correctamente');
     }
 }
