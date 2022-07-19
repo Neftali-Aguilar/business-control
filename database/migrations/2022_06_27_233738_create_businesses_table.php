@@ -16,6 +16,10 @@ class CreateBusinessesTable extends Migration
         Schema::create('businesses', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('address')->nullable();
+            $table->string('phone_1')->nullable();
+            $table->string('google_maps')->nullable();
+            $table->string('logo')->nullable();
             $table->timestamps();
         });
     }

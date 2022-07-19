@@ -8,13 +8,14 @@
                         <div class='rounded-t bg-white mb-0 px-6 py-6'>
                             <div class='text-center flex justify-between'>
                                 <h6 class='text-blueGray-700 text-xl font-bold'>
-                                    Listado de ventas
+                                    Listado de ventas -
                                 </h6>
-                                <button
+                                <Link
+                                    :href="route('sells.create')"
                                     class='bg-green-700 hover:bg-green-500 text-white font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150'
                                     type='button'>
                                     Crear venta
-                                </button>
+                                </Link>
                             </div>
                         </div>
                         <div class='flex-auto px-4 lg:px-10 py-10 pt-0 overflow-x-scroll'>
@@ -39,19 +40,19 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr>
+                                <tr v-for="sell in sells.data" :key="sell.id">
                                     <th class='border-t-0 px-6 border-l-0 border-r-0 text-md whitespace-nowrap p-4 text-left flex items-center'>
-                                        # 1
+                                        # {{ sell.id }}
                                     </th>
                                     <td class='border-t-0 px-6 border-l-0 border-r-0 text-md whitespace-nowrap p-4'>
-                                        2027-10-01
+                                       {{ sell.created_at }}
                                     </td>
                                     <td class='border-t-0 px-6 border-l-0 border-r-0 text-md whitespace-nowrap p-4'>
                                         Carro 1
                                     </td>
                                     <td class='border-t-0 px-6 border-l-0 border-r-0 text-md whitespace-nowrap p-4'>
                                         <i class='fas fa-circle text-orange-500 mr-2'></i>
-                                        $ 60.00
+                                        $ {{ sell.total.toFixed(2) }}
                                     </td>
                                     <td class='border-t-0 px-6 border-l-0 border-r-0 text-md whitespace-nowrap p-4'>
                                         <a href='#'
@@ -75,7 +76,10 @@ import Layout from '../Shared/Layout';
 
 export default {
     name: 'Index',
-    layout: Layout
+    layout: Layout,
+    props:{
+        sells: Object
+    }
 };
 </script>
 

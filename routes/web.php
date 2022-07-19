@@ -1,10 +1,10 @@
 <?php
 
-use App\Http\Controllers\Frontend\GeneralController;
-use App\Http\Controllers\Frontend\ProductController;
-use App\Http\Controllers\Frontend\ReportController;
-use App\Http\Controllers\Frontend\SellsController;
+use Inertia\Inertia;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Frontend\SellController;
+use App\Http\Controllers\Frontend\ReportController;
+use App\Http\Controllers\Frontend\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,10 +16,13 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::controller(SellsController::class)->group(function () {
+Route::controller(SellController::class)->group(function () {
     Route::get('/sells', 'index')->name('sells.index');
-    Route::get('/sells/{sell}', 'show')->name('sells.show');
+    Route::get('/sells/create', 'create')->name('sells.create');
     Route::post('/sells', 'store')->name('sells.store');
+    Route::get('/sells/{product}', 'show')->name('sells.show');
+    Route::put('/sells/{product}', 'update')->name('sells.update');
+    Route::delete('/sells/{product}', 'delete')->name('sells.delete');
 });
 
 Route::controller(ProductController::class)->group(function () {

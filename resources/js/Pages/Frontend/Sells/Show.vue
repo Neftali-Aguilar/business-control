@@ -14,7 +14,7 @@
                                 <h6 class='text-blueGray-700 text-xl font-bold'>
                                     Listado de productos
                                 </h6>
-                                <input v-model='search' type='text' placeholder='Buscar producto' class='border-gray-200 w-auto w-6/12'>
+                                <input type='text' placeholder='Buscar producto' class='border-gray-200 w-auto w-6/12'>
                                 <Link
                                     :href="route('products.create')"
                                     class='bg-green-700 hover:bg-green-500 text-white font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150'
@@ -98,7 +98,7 @@ import Swal from 'sweetalert2'
 
 
 export default {
-    name: 'Index',
+    name: 'Show',
     components: {
         Head,
         Pagination
@@ -108,8 +108,7 @@ export default {
         products: Object,
     },
     setup(props) {
-        const search = ref()
-        console.log(props.products)
+        console.log(props.sells)
         const displayMessage= (message) => {
             Swal.fire({
                 title: message,

@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Business;
 use App\Models\Product;
+use App\Models\Sell;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 
@@ -19,5 +20,6 @@ class DatabaseSeeder extends Seeder
         User::factory(10)->create();
         Business::factory(10)->create();
         Product::factory(100)->create();
+        Sell::factory(100)->create();
     }
 }

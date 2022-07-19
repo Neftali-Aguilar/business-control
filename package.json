@@ -10,7 +10,8 @@
         "production": "mix --production",
         "postinstall": "npm run prod",
         "heroku-postbuild": "mix & mix --mix-config=webpack.ssr.mix.js",
-        "ssr-dev": "mix & mix --mix-config=webpack.ssr.mix.js"
+        "ssr-dev": "mix & mix --mix-config=webpack.ssr.mix.js",
+        "ssr-prod": "mix --production && mix --production --mix-config=webpack.ssr.mix.js"
     },
     "devDependencies": {
         "@inertiajs/inertia": "^0.11.0",

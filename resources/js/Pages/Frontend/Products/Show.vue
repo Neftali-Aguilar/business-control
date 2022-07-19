@@ -146,7 +146,7 @@ export default {
             }).then((result) => {
                 if (result.isConfirmed) {
                     Inertia.delete(route('products.delete', product))
-                    Swal.fire('Producto eliminado con éxito!', '', 'success');
+                    //Swal.fire('Producto eliminado con éxito!', '', 'success');
                 } else if (result.isDenied) {
                     Swal.close()
                 }
